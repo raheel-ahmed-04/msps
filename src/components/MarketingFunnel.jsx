@@ -15,6 +15,12 @@ function MarketingFunnel() {
     visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
   };
 
+  // Animation variants for lines
+  const lineVariants = {
+    hidden: { width: 0, opacity: 0 },
+    visible: { width: "30%", opacity: 1, transition: { duration: 0.5 } },
+  };
+
   return (
     <section className="pt-20 pb-40 bg-gray-50">
       <div className="container mx-auto max-w-7xl px-6">
@@ -49,34 +55,43 @@ function MarketingFunnel() {
               Strangers
             </p>
             {/* Text Block for Layer 1 (Right Side) */}
-            <motion.div
-              className="absolute top-1/2 transform -translate-y-1/2 right-[-400px] w-[350px]"
-              initial="hidden"
-              animate={hovered ? "visible" : "hidden"}
-              variants={rightTextVariants}
-            >
-              <p className="text-lg font-semibold">1. Strangers → Acquaintances</p>
-              <ul className="text-sm text-gray-600 mt-2">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>
-                    <strong>Goal:</strong> Initiate contact with warmth and value.
-                  </span>
-                </li>
-                <li className="flex items-start mt-1">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>
-                    <strong>How It Works:</strong> Personalized, non-sales interactions spark curiosity and engagement.
-                  </span>
-                </li>
-                <li className="flex items-start mt-1">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>
-                    <strong>Key Actions:</strong> Handwritten notes, resource sharing, and thoughtful social interactions.
-                  </span>
-                </li>
-              </ul>
-            </motion.div>
+            <div className="absolute top-1/3 transform -translate-y-1/2 right-[-450px] w-[650px] flex items-center">
+              {/* Line */}
+              <motion.img
+              src="/funnel/vector1.svg"
+                initial="hidden"
+                animate={hovered ? "visible" : "hidden"}
+                variants={lineVariants}
+              />
+              <motion.div
+                initial="hidden"
+                animate={hovered ? "visible" : "hidden"}
+                variants={rightTextVariants}
+                className="flex-1 ml-8"
+              >
+                <p className="text-lg font-semibold">1. Strangers → Acquaintances</p>
+                <ul className="text-sm text-gray-600 mt-2">
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>
+                      <strong>Goal:</strong> Initiate contact with warmth and value.
+                    </span>
+                  </li>
+                  <li className="flex items-start mt-1">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>
+                      <strong>How It Works:</strong> Personalized, non-sales interactions spark curiosity and engagement.
+                    </span>
+                  </li>
+                  <li className="flex items-start mt-1">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>
+                      <strong>Key Actions:</strong> Handwritten notes, resource sharing, and thoughtful social interactions.
+                    </span>
+                  </li>
+                </ul>
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* Layer 2 */}
@@ -90,34 +105,42 @@ function MarketingFunnel() {
               Acquaintances
             </p>
             {/* Text Block for Layer 2 (Left Side) */}
-            <motion.div
-              className="absolute top-1/2 transform -translate-y-1/2 left-[-400px] w-[350px]"
-              initial="hidden"
-              animate={hovered ? "visible" : "hidden"}
-              variants={textVariants}
-            >
-              <p className="text-lg font-semibold">2. Acquaintances → Developing Trust</p>
-              <ul className="text-sm text-gray-600 mt-2">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>
-                    <strong>Goal:</strong> Build rapport through consistent and meaningful touchpoints.
-                  </span>
-                </li>
-                <li className="flex items-start mt-1">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>
-                    <strong>How It Works:</strong> Familiarity and credibility.
-                  </span>
-                </li>
-                <li className="flex items-start mt-1">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>
-                    <strong>Key Actions:</strong> Educational workshops, co-created content, exclusive communities.
-                  </span>
-                </li>
-              </ul>
-            </motion.div>
+            <div className="absolute top-1/3 transform -translate-y-1/2 left-[-450px] w-[550px] flex items-center">
+              <motion.div
+                initial="hidden"
+                animate={hovered ? "visible" : "hidden"}
+                variants={textVariants}
+                className="flex-1 mr-8"
+              >
+                <p className="text-lg font-semibold">2. Acquaintances → Developing Trust</p>
+                <ul className="text-sm text-gray-600 mt-2">
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>
+                      <strong>Goal:</strong> Build rapport through consistent and meaningful touchpoints.
+                    </span>
+                  </li>
+                  <li className="flex items-start mt-1">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>
+                      <strong>How It Works:</strong> Familiarity and credibility.
+                    </span>
+                  </li>
+                  <li className="flex items-start mt-1">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>
+                      <strong>Key Actions:</strong> Educational workshops, co-created content, exclusive communities.
+                    </span>
+                  </li>
+                </ul>
+              </motion.div>
+              <motion.img
+              src="/funnel/vector2.svg"
+                initial="hidden"
+                animate={hovered ? "visible" : "hidden"}
+                variants={lineVariants}
+              />
+            </div>
           </motion.div>
 
           {/* Layer 3 */}
@@ -131,34 +154,42 @@ function MarketingFunnel() {
               Developing Trust
             </p>
             {/* Text Block for Layer 3 (Right Side) */}
-            <motion.div
-              className="absolute top-1/2 transform -translate-y-1/2 right-[-400px] w-[350px]"
-              initial="hidden"
-              animate={hovered ? "visible" : "hidden"}
-              variants={rightTextVariants}
-            >
-              <p className="text-lg font-semibold">3. Developing Trust → Trusted Partners</p>
-              <ul className="text-sm text-gray-600 mt-2">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>
-                    <strong>Goal:</strong> Deepen engagement through personalized support.
-                  </span>
-                </li>
-                <li className="flex items-start mt-1">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>
-                    <strong>How It Works:</strong> One-on-one problem-solving and real-world collaboration.
-                  </span>
-                </li>
-                <li className="flex items-start mt-1">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>
-                    <strong>Key Actions:</strong> Free advisory sessions, low-risk pilot projects, transparent case studies.
-                  </span>
-                </li>
-              </ul>
-            </motion.div>
+            <div className="absolute top-1/5 transform -translate-y-1/2 right-[-450px] w-[550px] flex items-center">
+            <motion.img
+              src="/funnel/vector3.svg"
+                initial="hidden"
+                animate={hovered ? "visible" : "hidden"}
+                variants={lineVariants}
+              />
+              <motion.div
+                initial="hidden"
+                animate={hovered ? "visible" : "hidden"}
+                variants={rightTextVariants}
+                className="flex-1 ml-8"
+              >
+                <p className="text-lg font-semibold">3. Developing Trust → Trusted Partners</p>
+                <ul className="text-sm text-gray-600 mt-2">
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>
+                      <strong>Goal:</strong> Deepen engagement through personalized support.
+                    </span>
+                  </li>
+                  <li className="flex items-start mt-1">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>
+                      <strong>How It Works:</strong> One-on-one problem-solving and real-world collaboration.
+                    </span>
+                  </li>
+                  <li className="flex items-start mt-1">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>
+                      <strong>Key Actions:</strong> Free advisory sessions, low-risk pilot projects, transparent case studies.
+                    </span>
+                  </li>
+                </ul>
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* Layer 4 */}
@@ -172,34 +203,43 @@ function MarketingFunnel() {
               Trusted Partners
             </p>
             {/* Text Block for Layer 4 (Left Side) */}
-            <motion.div
-              className="absolute top-1/2 transform -translate-y-1/2 left-[-400px] w-[350px]"
-              initial="hidden"
-              animate={hovered ? "visible" : "hidden"}
-              variants={textVariants}
-            >
-              <p className="text-lg font-semibold">4. Trusted Partners → Transparent Allies</p>
-              <ul className="text-sm text-gray-600 mt-2">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>
-                    <strong>Goal:</strong> Achieve mutual growth through vulnerability and shared goals.
-                  </span>
-                </li>
-                <li className="flex items-start mt-1">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>
-                    <strong>How It Works:</strong> Joint planning, real-time transparency, and co-led initiatives.
-                  </span>
-                </li>
-                <li className="flex items-start mt-1">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>
-                    <strong>Key Actions:</strong> Roadmapping sessions, open-access dashboards, advocacy programs.
-                  </span>
-                </li>
-              </ul>
-            </motion.div>
+            <div className="absolute top-1/6 transform -translate-y-1/2 left-[-520px] w-[600px] flex items-center">
+              <motion.div
+                initial="hidden"
+                animate={hovered ? "visible" : "hidden"}
+                variants={textVariants}
+                className="flex-1"
+              >
+                <p className="text-lg font-semibold">4. Trusted Partners → Transparent Allies</p>
+                <ul className="text-sm text-gray-600 mt-2">
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>
+                      <strong>Goal:</strong> Achieve mutual growth through vulnerability and shared goals.
+                    </span>
+                  </li>
+                  <li className="flex items-start mt-1">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>
+                      <strong>How It Works:</strong> Joint planning, real-time transparency, and co-led initiatives.
+                    </span>
+                  </li>
+                  <li className="flex items-start mt-1">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>
+                      <strong>Key Actions:</strong> Roadmapping sessions, open-access dashboards, advocacy programs.
+                    </span>
+                  </li>
+                </ul>
+              </motion.div>
+              <motion.img
+              src="/funnel/vector4.svg"
+              className="w-[200px]"
+                initial="hidden"
+                animate={hovered ? "visible" : "hidden"}
+                variants={lineVariants}
+              />
+            </div>
           </motion.div>
         </div>
       </div>
