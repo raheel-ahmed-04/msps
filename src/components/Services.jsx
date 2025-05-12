@@ -11,22 +11,25 @@ function Services() {
       tier: "1",
       image: "/Frame.svg",
       title: "LINKEDIN OUTREACH",
+      coloredline: "Build and nurture ",
       description:
-        "Build and nurture LinkedIn relationships through personalized outreach engagement, tracked with a detailed progress system.",
+      "LinkedIn relationships through personalized outreach engagement, tracked with a detailed progress system.",
     },
     {
       tier: "2",
       image: "/Service2.svg",
       title: "MULTI-CHANNEL ENGAGEMENT",
+      coloredline: "All including Tier 1 + ",
       description:
-        "All including Tier 1 + Expand your presence across LinkedIn, Twitter, Email, and Reddit to nurture relationships on multiple platforms.",
+      "Expand your presence across LinkedIn, Twitter, Email, and Reddit to nurture relationships on multiple platforms.",
     },
     {
       tier: "3",
       image: "/Service3.svg",
       title: "ABM STRATEGY",
+      coloredline: "All including Tier 1 and 2 + ",
       description:
-        "All including Tier 1 and 2 + Target high-value clients with in-depth research and personalized outreach to secure meetings.",
+        "Target high-value clients with in-depth research and personalized outreach to secure meetings.",
     },
   ];
 
@@ -79,6 +82,7 @@ function Services() {
                 tier={services[0].tier}
                 image={services[0].image}
                 title={services[0].title}
+                coloredline={services[0].coloredline}
                 description={services[0].description}
               />
             </div>
@@ -94,6 +98,7 @@ function Services() {
                 tier={services[1].tier}
                 image={services[1].image}
                 title={services[1].title}
+                coloredline={services[1].coloredline}
                 description={services[1].description}
               />
             </div>
@@ -109,6 +114,7 @@ function Services() {
                 tier={services[2].tier}
                 image={services[2].image}
                 title={services[2].title}
+                coloredline={services[2].coloredline}
                 description={services[2].description}
               />
             </div>

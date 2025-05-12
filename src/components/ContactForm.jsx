@@ -36,8 +36,16 @@ function ContactForm() {
 
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto max-w-6xl px-6">
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 px-60 py-20">
+      <div className="container mx-auto max-w-6xl px-6 relative">
+          {/* Decorative elements */}
+          <div className="absolute top-25 opacity-80">
+              <img src="/form/vector3.svg" alt="Vector 3" />
+            </div>
+            <div className="absolute top-20 right-2/80 opacity-80">
+              <img src="/form/vector4.svg" alt="Vector 4" />
+            </div>
+        <div className="bg-linear-to-b from-[#FFF9F9] via-[#FFFFFB] to-[#FFFFFF] rounded-2xl shadow-sm border border-gray-100 px-70 py-20">
+
           <div className="text-center mb-10">
             <div className="flex justify-center items-center mb-4">
               <div className="h-px bg-gray-300 w-24"></div>
@@ -58,7 +66,7 @@ function ContactForm() {
                 id="name"
                 name="name"
                 placeholder="Enter your First Name"
-                className="w-full px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                className="w-full px-6 py-3 bg-white rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 placeholder-black placeholder:opacity-30"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -73,8 +81,8 @@ function ContactForm() {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Enter your First Name"
-                className="w-full px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                placeholder="Enter your Work Email"
+                className="w-full px-6 py-3 bg-white rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 placeholder-black placeholder:opacity-30"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -169,8 +177,8 @@ function ContactForm() {
                 type="text"
                 id="revenue"
                 name="revenue"
-                placeholder="Enter your First Name"
-                className="w-full px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                placeholder="Enter Annual Revenue"
+                className="w-full px-6 py-3 bg-white rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 placeholder-black placeholder:opacity-30"
                 value={formData.revenue}
                 onChange={handleChange}
               />
@@ -184,8 +192,8 @@ function ContactForm() {
                 type="text"
                 id="budget"
                 name="budget"
-                placeholder="Enter your First Name"
-                className="w-full px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                placeholder="Enter your Monthly Budget"
+                className="w-full px-6 py-3 bg-white rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 placeholder-black placeholder:opacity-30"
                 value={formData.budget}
                 onChange={handleChange}
               />
@@ -230,7 +238,7 @@ function ContactForm() {
                 name="reason"
                 placeholder="what you want to say"
                 rows={4}
-                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                className="w-full px-6 py-3 bg-white rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 placeholder-black placeholder:opacity-30"
                 value={formData.reason}
                 onChange={handleChange}
               ></textarea>

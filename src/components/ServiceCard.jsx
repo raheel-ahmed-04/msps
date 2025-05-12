@@ -1,6 +1,6 @@
-function ServiceCard({ tier, image, title, description }) {
+function ServiceCard({ tier, image, title, coloredline, description }) {
   return (
-    <div className="bg-gray-50 px-6 pt-16 pb-10 rounded-3xl transition-all duration-300 hover:shadow-md relative border border-gray-200 w-[23em] max-w-md mx-auto ">
+    <div className="bg-[#FBFBFB] px-6 pt-16 pb-10 rounded-3xl transition-all duration-300 hover:shadow-xl relative border border-gray-200 w-[23em] max-w-md mx-auto ">
       {/* Tier Label */}
       <div className="absolute top-6 right-6 text-3xl font-bold text-gray-200 select-none">
         TIER {tier}
@@ -18,7 +18,7 @@ function ServiceCard({ tier, image, title, description }) {
       {/* Content */}
       <div className="mt-8">
         <h4 className="text-xl font-semibold mb-3">{title}</h4>
-        <p className="text-gray-400 text-sm leading-relaxed">{description}</p>
+        <p className="text-gray-400 text-sm leading-relaxed"><span className="text-[#FF6201]">{coloredline}</span>{description}</p>
       </div>
     </div>
   );
