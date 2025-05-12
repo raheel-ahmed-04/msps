@@ -22,7 +22,7 @@ function MarketingFunnel() {
   };
 
   return (
-    <section className="pt-20 pb-40 bg-gray-50">
+    <section className="pt-20 pb-40 bg-white">
       <div className="container mx-auto max-w-7xl px-6">
         <div className="text-center mb-40">
           <div className="flex justify-center items-center mb-4">
@@ -46,14 +46,11 @@ function MarketingFunnel() {
         >
           {/* Layer 1 */}
           <motion.div
-            className="relative w-[50%] z-40"
+            className="relative w-[40%] z-40"
             animate={{ y: hovered ? -80 : 0, marginBottom: hovered ? 20 : 0 }}
             transition={{ type: "spring", stiffness: 100 }}
           >
             <img src="/funnel/layer1.svg" alt="Strangers" className="w-full" />
-            <p className="absolute inset-0 flex items-center justify-center text-lg font-medium text-black">
-              Strangers
-            </p>
             {/* Text Block for Layer 1 (Right Side) */}
             <div className="absolute top-1/3 transform -translate-y-1/2 right-[-450px] w-[650px] flex items-center">
               {/* Line */}
@@ -96,14 +93,12 @@ function MarketingFunnel() {
 
           {/* Layer 2 */}
           <motion.div
-            className="relative w-[40%] z-30 -mt-8"
+            className="relative w-[30%] z-30 -mt-7"
             animate={{ y: hovered ? 0 : 0, marginBottom: hovered ? 0 : 0 }}
             transition={{ type: "spring", stiffness: 100 }}
           >
             <img src="/funnel/layer2.svg" alt="Acquaintances" className="w-full" />
-            <p className="absolute inset-0 flex items-center justify-center text-lg font-medium text-black">
-              Acquaintances
-            </p>
+            
             {/* Text Block for Layer 2 (Left Side) */}
             <div className="absolute top-1/3 transform -translate-y-1/2 left-[-450px] w-[550px] flex items-center">
               <motion.div
@@ -145,14 +140,12 @@ function MarketingFunnel() {
 
           {/* Layer 3 */}
           <motion.div
-            className="relative w-[30%] z-20 -mt-6"
+            className="relative w-[20%] z-20 -mt-3"
             animate={{ y: hovered ? 80 : 0, marginBottom: hovered ? 20 : 0 }}
             transition={{ type: "spring", stiffness: 100 }}
           >
             <img src="/funnel/layer3.svg" alt="Developing Trust" className="w-full" />
-            <p className="absolute inset-0 flex items-center justify-center text-lg font-medium text-black text-center px-2">
-              Developing Trust
-            </p>
+            
             {/* Text Block for Layer 3 (Right Side) */}
             <div className="absolute top-1/5 transform -translate-y-1/2 right-[-450px] w-[550px] flex items-center">
             <motion.img
@@ -194,14 +187,12 @@ function MarketingFunnel() {
 
           {/* Layer 4 */}
           <motion.div
-            className="relative w-[20%] z-10"
+            className="relative w-[12%] z-10 -mt-1"
             animate={{ y: hovered ? 120 : 0 }}
             transition={{ type: "spring", stiffness: 100 }}
           >
             <img src="/funnel/layer4.svg" alt="Trusted Partners" className="w-full" />
-            <p className="absolute inset-0 flex items-center justify-center text-lg font-medium text-black text-center px-2">
-              Trusted Partners
-            </p>
+            
             {/* Text Block for Layer 4 (Left Side) */}
             <div className="absolute top-1/6 transform -translate-y-1/2 left-[-520px] w-[600px] flex items-center">
               <motion.div
