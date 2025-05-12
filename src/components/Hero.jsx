@@ -1,7 +1,16 @@
 import Header from "./Header";
 function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-gray-50 to-pink-50 pb-16">
+    // <section className="relative pb-16" style={{ backgroundImage: 'linear-gradient(to bottom right, #E5E5E5 0%, #FFFFFF 20%, #FEFFD2 40%, #FFDDC7 60%, #FFC3C3 80%, #B1EDFF 100%)' }}>
+    <section className="relative p-6">
+      <img src="/hero_bg_light.svg" className="absolute -top-2 right-2 h-[608px] z-100 opacity-90" alt="" />
+    <section
+      className="relative pb-16 rounded-4xl overflow-hidden"
+      style={{
+        backgroundImage:
+          "linear-gradient(to bottom right, rgba(229, 229, 229, 1) 0%, rgba(255, 255, 255, 1) 20%, rgba(251, 251, 242, 1) 45%, rgba(255, 221, 199, 1) 70%, rgba(255, 195, 195, 1) 80%, rgba(177, 237, 255, 1) 100%)",
+      }}
+    >
       <Header />
 
       {/* Decorative elements */}
@@ -33,8 +42,11 @@ function Hero() {
 
           <h1 className="text-4xl md:text-5xl font-bold mb-4 max-w-5xl mx-auto">
             Return to the pre-industrial<br></br> revolution model of{" "}
-            <span className="bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent">
-              business growth
+            <span className="bg-gradient-to-br from-[#FF6201] from-41% via-[#FF0004] via-53% to-[#5A4BC9] to-100%  bg-clip-text text-transparent">
+              business{" "}
+            </span>
+            <span className="bg-gradient-to-r from-[#FF6D34] from-0% to-[#EFAC02] to-100% bg-clip-text text-transparent">
+              growth
             </span>
           </h1>
 
@@ -45,13 +57,13 @@ function Hero() {
           </p>
 
           <div className="flex justify-center mb-12">
-            <button className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition duration-300 cursor-pointer">
+            <button className="relative bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition duration-300 cursor-pointer">
               WORK WITH US
             </button>
           </div>
 
           {/* Video section */}
-          <div className="w-full max-w-4xl mx-auto my-20 relative">
+          <div className="w-full max-w-5xl mx-auto my-20 relative">
             {/* Decorative elements */}
             <div className="absolute -top-33 left-1/20 opacity-80">
               <img src="/hero_vector1.svg" alt="Vector 1" />
@@ -61,10 +73,13 @@ function Hero() {
             </div>
 
             {/* White container with gradient shadow */}
-            <div className="relative bg-white rounded-4xl shadow-xl overflow-hidden p-4">
-            <div className="absolute inset-0 rounded-2xl" style={{
-                boxShadow: '0 0 30px 15px rgba(0, 255, 255, 0.4), 0 0 30px 20px rgba(255, 255, 0, 0.3), 0 0 30px 25px rgba(255, 182, 193, 0.3), 0 0 30px 30px rgba(173, 216, 230, 0.3)',
-              }}></div>
+            <div className="relative bg-white rounded-4xl overflow-hidden p-4" style={{
+                  boxShadow:
+                    "0 0 40px 15px rgba(0, 0, 0, 0.3)",
+                }}>
+              <div
+                className="absolute inset-0 rounded-4xl"
+              ></div>
               <div className="relative">
                 <img
                   src="/hero.png"
@@ -72,21 +87,8 @@ function Hero() {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <button className="bg-white bg-opacity-80 rounded-full p-4 cursor-pointer hover:bg-opacity-100 transition duration-300">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-gray-800"
-                    >
-                      <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" />
-                    </svg>
+                  <button className=" bg-opacity-80 rounded-full p-4 cursor-pointer hover:bg-opacity-100 transition duration-300 group">
+                    <img src="/play_button.svg" className="group-hover:opacity-200" alt="" />
                   </button>
                 </div>
               </div>
@@ -94,6 +96,7 @@ function Hero() {
           </div>
         </div>
       </div>
+    </section>
     </section>
   );
 }
