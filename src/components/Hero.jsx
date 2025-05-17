@@ -3,7 +3,7 @@ function Hero() {
   return (
     // <section className="relative pb-16" style={{ backgroundImage: 'linear-gradient(to bottom right, #E5E5E5 0%, #FFFFFF 20%, #FEFFD2 40%, #FFDDC7 60%, #FFC3C3 80%, #B1EDFF 100%)' }}>
     <section className="relative p-6">
-      <img src="/hero_bg_light.svg" className="absolute -top-2 right-2 h-[608px] z-100 opacity-90" alt="" />
+      <img src="/hero_bg_light.svg" className="hidden md:block absolute -top-2 right-2 h-[608px] z-100 opacity-90" alt="" />
     <section
       className="relative pb-16 rounded-4xl overflow-hidden"
       style={{
@@ -57,7 +57,7 @@ function Hero() {
           </p>
 
           <div className="flex justify-center mb-12">
-            <button className="relative bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition duration-300 cursor-pointer">
+            <button className="relative z-10 bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition duration-300 cursor-pointer">
               WORK WITH US
             </button>
           </div>
