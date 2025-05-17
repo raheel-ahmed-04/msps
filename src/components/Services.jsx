@@ -54,7 +54,7 @@ function Services() {
 
         {/* Services Container with Hover Effect */}
         <div
-          className="relative min-h-[400px] mt-50"
+          className="relative min-h-[400px] mt-30 md:mt-50"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -70,7 +70,7 @@ function Services() {
           )}
 
           {/* Service Cards with Dynamic Positioning */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-3 relative z-10">
             <div
               className={`transition-all duration-500 ease-in-out transform ${
                 isHovered
