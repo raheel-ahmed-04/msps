@@ -1,10 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import ServiceCard from "./ServiceCard";
 
 function Services() {
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Check if device is mobile on component mount and window resize
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial check
+    checkIfMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIfMobile);
+    
+    // Clean up event listener
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
 
   const services = [
     {
@@ -33,19 +51,33 @@ function Services() {
     },
   ];
 
+  // Animation variants
+  const cardVariants = {
+    initial: { y: 0 },
+    card1Hover: { y: -100 },
+    card2Hover: { y: 0 },
+    card3Hover: { y: 100 },
+  };
+
+  // Vector animation variants
+  const vectorVariants = {
+    hidden: { opacity: 0, scale: 1.1 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
+  };
+
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white overflow-hidden">
       <div className="container mx-auto max-w-7xl px-6">
         <div className="text-center mb-16">
           <div className="flex justify-center items-center mb-4">
-            <div className="h-px bg-gray-300 w-32"></div>
-            <p className="text-gray-700 uppercase tracking-wider text-sm mx-4">
+            <div className="h-px bg-gray-300 w-26 md:w-32 "></div>
+            <p className="text-gray-700 uppercase tracking-wider text-xs md:text-sm mx-2 md:mx-4">
               VISIBILITY, NOT SALES
             </p>
-            <div className="h-px bg-gray-300 w-32"></div>
+            <div className="h-px bg-gray-300 w-26 md:w-32 "></div>
           </div>
-          <h3 className="text-4xl font-bold mb-4">OUR SERVICES</h3>
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <h3 className="text-2xl md:text-4xl font-bold mb-4">OUR SERVICES</h3>
+          <p className="text-sm md:text-lg text-gray-400 max-w-3xl mx-auto">
             Our Tier-based services organize support and resources into distinct
             levels or tiers, offering tailored solutions based on customer needs
             and problem complexity.
@@ -55,28 +87,32 @@ function Services() {
         {/* Services Container with Hover Effect */}
         <div
           className="relative min-h-[400px] mt-30 md:mt-50"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          onMouseEnter={() => !isMobile && setIsHovered(true)}
+          onMouseLeave={() => !isMobile && setIsHovered(false)}
         >
           {/* Connecting Lines (visible on hover) */}
-          {isHovered && (
-            <div className="flex items-center justify-center">
+          {!isMobile && (
+            <motion.div 
+              className="flex items-center justify-center"
+              initial="hidden"
+              animate={isHovered ? "visible" : "hidden"}
+              variants={vectorVariants}
+            >
               <img
                 src="/services/hover_vector.svg"
                 alt=""
                 className="z-10 absolute -top-40 object-contain"
               />
-            </div>
+            </motion.div>
           )}
 
           {/* Service Cards with Dynamic Positioning */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-3 relative z-10">
-            <div
-              className={`transition-all duration-500 ease-in-out transform ${
-                isHovered
-                  ? "translate-x-0 translate-y-[-100px]"
-                  : "translate-x-0 translate-y-0"
-              }`}
+            <motion.div
+              variants={cardVariants}
+              initial="initial"
+              animate={!isMobile && isHovered ? "card1Hover" : "initial"}
+              transition={{ type: "spring", stiffness: 500, damping: 40 }}
             >
               <ServiceCard
                 tier={services[0].tier}
@@ -85,14 +121,13 @@ function Services() {
                 coloredline={services[0].coloredline}
                 description={services[0].description}
               />
-            </div>
+            </motion.div>
 
-            <div
-              className={`transition-all duration-500 ease-in-out transform ${
-                isHovered
-                  ? "translate-x-0 translate-y-0"
-                  : "translate-x-0 translate-y-0"
-              }`}
+            <motion.div
+              variants={cardVariants}
+              initial="initial"
+              animate={!isMobile && isHovered ? "card2Hover" : "initial"}
+              transition={{ type: "spring", stiffness: 700, damping: 30 }}
             >
               <ServiceCard
                 tier={services[1].tier}
@@ -101,14 +136,13 @@ function Services() {
                 coloredline={services[1].coloredline}
                 description={services[1].description}
               />
-            </div>
+            </motion.div>
 
-            <div
-              className={`transition-all duration-500 ease-in-out transform ${
-                isHovered
-                  ? "translate-x-0 translate-y-[100px]"
-                  : "translate-x-0 translate-y-0"
-              }`}
+            <motion.div
+              variants={cardVariants}
+              initial="initial"
+              animate={!isMobile && isHovered ? "card3Hover" : "initial"}
+              transition={{ type: "spring", stiffness: 500, damping: 40 }}
             >
               <ServiceCard
                 tier={services[2].tier}
@@ -117,7 +151,7 @@ function Services() {
                 coloredline={services[2].coloredline}
                 description={services[2].description}
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -47,12 +47,12 @@ function ContactForm() {
         <div className="bg-gradient-to-b from-[#FFF9F9] via-[#FFFFFB] to-[#FFFFFF] rounded-xl md:rounded-2xl shadow-sm border border-gray-100 px-4 md:px-28 py-6 md:py-20">
           <div className="text-center mb-6 md:mb-10">
             <div className="flex justify-center items-center mb-2 md:mb-4">
-              <div className="h-px bg-gray-300 w-16 md:w-24"></div>
-              <p className="text-gray-700 uppercase tracking-wider text-sm mx-2 md:mx-4">LET'S CONNECT!!</p>
-              <div className="h-px bg-gray-300 w-16 md:w-24"></div>
+              <div className="h-px bg-gray-300 w-26 md:w-32"></div>
+              <p className="text-gray-700 uppercase tracking-wider text-xs md:text-sm mx-2 md:mx-4">LET'S CONNECT!!</p>
+              <div className="h-px bg-gray-300 w-26 md:w-32"></div>
             </div>
-            <h3 className="text-3xl md:text-4xl font-bold mb-2 md:mb-3">WORK WITH US</h3>
-            <p className="text-gray-600 text-base">Partner with us to accelerate your MSP growth and success!</p>
+            <h3 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3">WORK WITH US</h3>
+            <p className="text-gray-400 font-light text-sm md:text-lg">Partner with us to accelerate your MSP growth and success!</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
@@ -65,7 +65,7 @@ function ContactForm() {
                 id="name"
                 name="name"
                 placeholder="Enter your First Name"
-                className="w-full px-4 md:px-6 py-2 md:py-3 bg-white rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 placeholder-black placeholder:opacity-30 text-sm md:text-base"
+                className="w-full px-4 md:px-6 py-2 md:py-3 bg-white rounded-full border border-gray-300 focus:outline-none focus:ring-0 focus:border-black focus:shadow-[0_0_4px_rgba(0,0,0,0.3)] placeholder-black placeholder:opacity-30 text-sm md:text-base"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -81,7 +81,7 @@ function ContactForm() {
                 id="email"
                 name="email"
                 placeholder="Enter your Work Email"
-                className="w-full px-4 md:px-6 py-2 md:py-3 bg-white rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 placeholder-black placeholder:opacity-30 text-sm md:text-base"
+                className="w-full px-4 md:px-6 py-2 md:py-3 bg-white rounded-full border border-gray-300 focus:outline-none focus:ring-0 focus:border-black focus:shadow-[0_0_4px_rgba(0,0,0,0.3)] placeholder-black placeholder:opacity-30 text-sm md:text-base"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -93,7 +93,7 @@ function ContactForm() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
                 <button
                   type="button"
-                  className={`py-1 md:py-2 px-3 md:px-4 rounded-full border ${
+                  className={`py-2 md:py-3 px-3 md:px-4 rounded-full border ${
                     formData.organization === "1-5"
                       ? "bg-black text-white border-black"
                       : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
@@ -104,7 +104,7 @@ function ContactForm() {
                 </button>
                 <button
                   type="button"
-                  className={`py-1 md:py-2 px-3 md:px-4 rounded-full border ${
+                  className={`py-2 md:py-3 px-3 md:px-4 rounded-full border ${
                     formData.organization === "6-15"
                       ? "bg-black text-white border-black"
                       : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
@@ -115,7 +115,7 @@ function ContactForm() {
                 </button>
                 <button
                   type="button"
-                  className={`py-1 md:py-2 px-3 md:px-4 rounded-full border ${
+                  className={`py-2 md:py-3 px-3 md:px-4 rounded-full border ${
                     formData.organization === "16-50"
                       ? "bg-black text-white border-black"
                       : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
@@ -134,7 +134,7 @@ function ContactForm() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 mb-1 md:mb-2">
                 <button
                   type="button"
-                  className={`py-1 md:py-2 px-3 md:px-4 rounded-full border ${
+                  className={`py-2 md:py-3 px-3 md:px-4 rounded-full border ${
                     formData.outbound === "yes"
                       ? "bg-black text-white border-black"
                       : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
@@ -145,7 +145,7 @@ function ContactForm() {
                 </button>
                 <button
                   type="button"
-                  className={`py-1 md:py-2 px-3 md:px-4 rounded-full border ${
+                  className={`py-2 md:py-3 px-3 md:px-4 rounded-full border ${
                     formData.outbound === "no"
                       ? "bg-black text-white border-black"
                       : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
@@ -157,7 +157,7 @@ function ContactForm() {
               </div>
               <button
                 type="button"
-                className={`w-full py-1 md:py-2 px-3 md:px-4 rounded-full border ${
+                className={`w-full py-2 md:py-3 px-3 md:px-4 rounded-full border ${
                   formData.outbound === "experienced"
                     ? "bg-black text-white border-black"
                     : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
@@ -177,7 +177,7 @@ function ContactForm() {
                 id="revenue"
                 name="revenue"
                 placeholder="Enter Annual Revenue"
-                className="w-full px-4 md:px-6 py-2 md:py-3 bg-white rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 placeholder-black placeholder:opacity-30 text-sm md:text-base"
+                className="w-full px-4 md:px-6 py-2 md:py-3 bg-white rounded-full border border-gray-300 focus:outline-none focus:ring-0 focus:border-black focus:shadow-[0_0_4px_rgba(0,0,0,0.3)] placeholder-black placeholder:opacity-30 text-sm md:text-base"
                 value={formData.revenue}
                 onChange={handleChange}
               />
@@ -188,11 +188,11 @@ function ContactForm() {
                 Monthly Budget
               </label>
               <input
-                type="text"
+                type="number"
                 id="budget"
                 name="budget"
                 placeholder="Enter your Monthly Budget"
-                className="w-full px-4 md:px-6 py-2 md:py-3 bg-white rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 placeholder-black placeholder:opacity-30 text-sm md:text-base"
+                className="w-full px-4 md:px-6 py-2 md:py-3 bg-white rounded-full border border-gray-300 focus:outline-none focus:ring-0 focus:border-black focus:shadow-[0_0_4px_rgba(0,0,0,0.3)] placeholder-black placeholder:opacity-30 text-sm md:text-base"
                 value={formData.budget}
                 onChange={handleChange}
               />
@@ -205,7 +205,7 @@ function ContactForm() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
                 <button
                   type="button"
-                  className={`py-1 md:py-2 px-3 md:px-4 rounded-full border ${
+                  className={`py-2 md:py-3 px-3 md:px-4 rounded-full border ${
                     formData.understand === "yes"
                       ? "bg-black text-white border-black"
                       : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
@@ -216,7 +216,7 @@ function ContactForm() {
                 </button>
                 <button
                   type="button"
-                  className={`py-1 md:py-2 px-3 md:px-4 rounded-full border ${
+                  className={`py-2 md:py-3 px-3 md:px-4 rounded-full border ${
                     formData.understand === "no"
                       ? "bg-black text-white border-black"
                       : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
@@ -237,7 +237,7 @@ function ContactForm() {
                 name="reason"
                 placeholder="what you want to say"
                 rows={4}
-                className="w-full px-4 md:px-6 py-2 md:py-3 bg-white rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 placeholder-black placeholder:opacity-30 text-sm md:text-base"
+                className="w-full px-4 md:px-6 py-2 md:py-3 bg-white rounded-xl border border-gray-300 focus:outline-none focus:ring-0 focus:border-black focus:shadow-[0_0_4px_rgba(0,0,0,0.3)] placeholder-black placeholder:opacity-30 text-sm md:text-base"
                 value={formData.reason}
                 onChange={handleChange}
               ></textarea>

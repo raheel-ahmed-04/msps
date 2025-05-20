@@ -4,6 +4,7 @@ import { useState } from "react";
 function MarketingFunnel() {
   const [hovered, setHovered] = useState(false);
   const [clickedFunnel, setClickedFunnel] = useState(null);
+  const [arrowRotated, setArrowRotated] = useState({ 1: false, 2: false, 3: false, 4: false });
 
   // Animation variants for text blocks
   const textVariants = {
@@ -22,25 +23,19 @@ function MarketingFunnel() {
     visible: { width: "30%", opacity: 1, transition: { duration: 0.5 } },
   };
 
-  // Animation variants for mobile details
-  const mobileDetailsVariants = {
-    hidden: { opacity: 0, height: 0, marginTop: 0 },
-    visible: { opacity: 1, height: "auto", marginTop: 16, transition: { duration: 0.5 } },
-  };
-
   return (
-    <section className="pt-20 pb-40 bg-white overflow-hidden">
+    <section className="pt-10 md:pt-10 pb-20 md:pb-40 bg-white overflow-hidden">
       <div className="container mx-auto max-w-7xl px-6">
-        <div className="text-center mb-40">
+        <div className="text-center mb-20 md:mb-40">
           <div className="flex justify-center items-center mb-4">
-            <div className="h-px bg-gray-300 w-32"></div>
-            <p className="text-gray-700 uppercase tracking-wider text-sm mx-4">
+            <div className="h-px bg-gray-300 w-26 md:w-32"></div>
+            <p className="text-gray-700 uppercase tracking-wider  text-xs md:text-sm mx-2 md:mx-4">
               SMART GROWTH STRATEGY
             </p>
-            <div className="h-px bg-gray-300 w-32"></div>
+            <div className="h-px bg-gray-300 w-26 md:w-32"></div>
           </div>
-          <h3 className="text-4xl font-bold mb-4">OUR MARKETING FUNNEL</h3>
-          <p className="text-gray-600 max-w-3xl mx-auto">
+          <h3 className="text-2xl md:text-4xl font-bold mb-4">OUR MARKETING FUNNEL</h3>
+          <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-lg font-light">
             Our marketing funnel is designed to attract, engage, and convert leads into loyal customers efficiently.
           </p>
         </div>
@@ -238,31 +233,47 @@ function MarketingFunnel() {
         </div>
 
         {/* Mobile Funnel Section */}
-        <div className="md:hidden flex flex-col items-center ">
+        <div className="md:hidden flex flex-col items-center">
           {/* Layer 1 */}
-          <div className="z-10 relative w-[80%] max-w-xs ">
-            <img src="/funnel/layer1.svg" alt="Strangers" className="w-full" />
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <svg
-                className="w-6 h-6 text-gray-600 cursor-pointer"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                onClick={() => setClickedFunnel(clickedFunnel === 1 ? null : 1)}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+          <div className="w-[90%] max-w-xs mb-4">
+            <div 
+              className="relative cursor-pointer"
+              onClick={() => {
+                setClickedFunnel(clickedFunnel === 1 ? null : 1);
+                setArrowRotated(prev => ({ ...prev, 1: !prev[1] }));
+              }}
+            >
+              <img
+                src="/funnel/layer1.svg"
+                alt="Strangers"
+                className="w-full"
+              />
+              <div className="absolute top-4/6 -right-4 transform -translate-y-1/2">
+                <svg
+                  className="w-6 h-6 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  style={{ transform: arrowRotated[1] ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
             </div>
-            <motion.div
-              initial="hidden"
-              animate={clickedFunnel === 1 ? "visible" : "hidden"}
-              variants={mobileDetailsVariants}
-              className="mt-4 text-center"
+            <div
+              className="overflow-hidden text-center"
+              style={{
+                maxHeight: clickedFunnel === 1 ? '500px' : '0',
+                opacity: clickedFunnel === 1 ? 1 : 0,
+                marginTop: clickedFunnel === 1 ? '16px' : '0',
+                marginBottom: clickedFunnel === 1 ? '16px' : '0',
+                transition: 'max-height 0.5s, opacity 0.5s, margin 0.5s'
+              }}
             >
               <p className="text-lg font-semibold">1. Strangers → Acquaintances</p>
               <ul className="text-sm text-gray-600 mt-2">
@@ -285,33 +296,49 @@ function MarketingFunnel() {
                   </span>
                 </li>
               </ul>
-            </motion.div>
+            </div>
           </div>
 
           {/* Layer 2 */}
-          <div className="z-9 relative w-[50%] max-w-xs -mt-4">
-            <img src="/funnel/layer2.svg" alt="Acquaintances" className="w-full" />
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <svg
-                className="w-6 h-6 text-gray-600 cursor-pointer"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                onClick={() => setClickedFunnel(clickedFunnel === 2 ? null : 2)}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+          <div className="w-[65%] max-w-xs -mt-4 mb-2">
+            <div 
+              className="relative cursor-pointer"
+              onClick={() => {
+                setClickedFunnel(clickedFunnel === 2 ? null : 2);
+                setArrowRotated(prev => ({ ...prev, 2: !prev[2] }));
+              }}
+            >
+              <img
+                src="/funnel/layer2.svg"
+                alt="Acquaintances"
+                className="w-full"
+              />
+              <div className="absolute top-4/6 -right-4 transform -translate-y-1/2">
+                <svg
+                  className="w-6 h-6 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  style={{ transform: arrowRotated[2] ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
             </div>
-            <motion.div
-              initial="hidden"
-              animate={clickedFunnel === 2 ? "visible" : "hidden"}
-              variants={mobileDetailsVariants}
-              className="mt-4 text-center"
+            <div
+              className="overflow-hidden text-center"
+              style={{
+                maxHeight: clickedFunnel === 2 ? '500px' : '0',
+                opacity: clickedFunnel === 2 ? 1 : 0,
+                marginTop: clickedFunnel === 2 ? '16px' : '0',
+                marginBottom: clickedFunnel === 2 ? '16px' : '0',
+                transition: 'max-height 0.5s, opacity 0.5s, margin 0.5s'
+              }}
             >
               <p className="text-lg font-semibold">2. Acquaintances → Developing Trust</p>
               <ul className="text-sm text-gray-600 mt-2">
@@ -334,33 +361,49 @@ function MarketingFunnel() {
                   </span>
                 </li>
               </ul>
-            </motion.div>
+            </div>
           </div>
 
           {/* Layer 3 */}
-          <div className="z-8 relative  w-[40%] max-w-xs -mt-2">
-            <img src="/funnel/layer3.svg" alt="Developing Trust" className="w-full" onClick={() => setClickedFunnel(clickedFunnel === 3 ? null : 3)}/>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <svg
-                className="w-6 h-6 text-gray-600 cursor-pointer"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                onClick={() => setClickedFunnel(clickedFunnel === 3 ? null : 3)}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+          <div className="w-[50%] max-w-xs -mt-2 mb-0">
+            <div 
+              className="relative cursor-pointer"
+              onClick={() => {
+                setClickedFunnel(clickedFunnel === 3 ? null : 3);
+                setArrowRotated(prev => ({ ...prev, 3: !prev[3] }));
+              }}
+            >
+              <img
+                src="/funnel/layer3.svg"
+                alt="Developing Trust"
+                className="w-full"
+              />
+              <div className="absolute top-4/7 -right-4 transform -translate-y-1/2">
+                <svg
+                  className="w-6 h-6 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  style={{ transform: arrowRotated[3] ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
             </div>
-            <motion.div
-              initial="hidden"
-              animate={clickedFunnel === 3 ? "visible" : "hidden"}
-              variants={mobileDetailsVariants}
-              className="mt-4 text-center"
+            <div
+              className="overflow-hidden text-center"
+              style={{
+                maxHeight: clickedFunnel === 3 ? '500px' : '0',
+                opacity: clickedFunnel === 3 ? 1 : 0,
+                marginTop: clickedFunnel === 3 ? '16px' : '0',
+                marginBottom: clickedFunnel === 3 ? '16px' : '0',
+                transition: 'max-height 0.5s, opacity 0.5s, margin 0.5s'
+              }}
             >
               <p className="text-lg font-semibold">3. Developing Trust → Trusted Partners</p>
               <ul className="text-sm text-gray-600 mt-2">
@@ -383,33 +426,49 @@ function MarketingFunnel() {
                   </span>
                 </li>
               </ul>
-            </motion.div>
+            </div>
           </div>
 
           {/* Layer 4 */}
-          <div className="relative w-[25%] max-w-xs">
-            <img src="/funnel/layer4.svg" alt="Trusted Partners" className="w-full" />
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <svg
-                className="w-6 h-6 text-gray-600 cursor-pointer"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                onClick={() => setClickedFunnel(clickedFunnel === 4 ? null : 4)}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+          <div className=" w-full  max-w-xs">
+            <div 
+              className="relative cursor-pointer flex items-center justify-center "
+              onClick={() => {
+                setClickedFunnel(clickedFunnel === 4 ? null : 4);
+                setArrowRotated(prev => ({ ...prev, 4: !prev[4] }));
+              }}
+            >
+              <img
+                src="/funnel/layer4.svg"
+                alt="Trusted Partners"
+                className="w-[40%]"
+              />
+              <div className="absolute top-1/2 right-20 transform -translate-y-1/2">
+                <svg
+                  className="w-6 h-6 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  style={{ transform: arrowRotated[4] ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
             </div>
-            <motion.div
-              initial="hidden"
-              animate={clickedFunnel === 4 ? "visible" : "hidden"}
-              variants={mobileDetailsVariants}
-              className="mt-4 text-center"
+            <div
+              className="overflow-hidden text-center"
+              style={{
+                maxHeight: clickedFunnel === 4 ? '500px' : '0',
+                opacity: clickedFunnel === 4 ? 1 : 0,
+                marginTop: clickedFunnel === 4 ? '16px' : '0',
+                marginBottom: clickedFunnel === 4 ? '16px' : '0',
+                transition: 'max-height 0.5s, opacity 0.5s, margin 0.5s'
+              }}
             >
               <p className="text-lg font-semibold">4. Trusted Partners → Transparent Allies</p>
               <ul className="text-sm text-gray-600 mt-2">
@@ -432,7 +491,7 @@ function MarketingFunnel() {
                   </span>
                 </li>
               </ul>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

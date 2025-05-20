@@ -11,16 +11,16 @@ function Footer() {
         <div className="absolute inset-0 bg-black opacity-80"></div>
       </div>
 
-      <div className="container mx-auto max-w-2xl md:max-w-7xl px-4 md:px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
+      <div className="container mx-auto max-w-2xl md:max-w-7xl my-16 md:my-0 px-4 md:px-6 relative z-10">
+        <div className="flex flex-col md:flex-row justify-start md:justify-between items-start ml-10 md:ml-0 md:items-center md:items-start">
           <div className="mb-4 md:mb-0">
             {/* Logo */}
-            <div className="flex justify-center md:justify-start items-center mb-4">
-              <img src="/logo2.png" alt="MSPs Logo" className="h-10 md:h-12" />
+            <div className="flex justify-start items-center mb-30 md:mb-4">
+              <img src="/logo2.png" alt="MSPs Logo" className="h-14 md:h-12" />
             </div>
 
             {/* Contact Information */}
-            <div className="space-y-2 text-gray-300 text-xs md:text-sm text-center md:text-left">
+            <div className="space-y-8 md:space-y-2 text-gray-300 text-xs md:text-sm text-left mb-30 md:mb-">
               <p>A108 Adam Street New York, NY 535022 United States</p>
               <p>Phone: +1 5589 55488 55</p>
               <p>Email: info@example.com</p>
@@ -28,7 +28,7 @@ function Footer() {
           </div>
 
           {/* Social Media Icons */}
-          <div className="flex flex-row md:flex-row justify-center md:justify-end space-y-0 md:space-y-0 md:space-x-6">
+          <div className="flex flex-row md:flex-row justify-center md:justify-end space-x-6 space-y-0 md:space-y-0 md:space-x-6">
             <a
               href="#"
               className="text-white hover:text-gray-300 transition duration-300"
