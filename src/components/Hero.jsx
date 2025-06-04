@@ -15,13 +15,7 @@ function Hero() {
     // <section className="relative pb-16" style={{ backgroundImage: 'linear-gradient(to bottom right, #E5E5E5 0%, #FFFFFF 20%, #FEFFD2 40%, #FFDDC7 60%, #FFC3C3 80%, #B1EDFF 100%)' }}>
     <section className="relative md:p-6">
       <img src="/hero_bg_light.svg" className="hidden md:block absolute -top-2 right-2 h-[608px] z-100 opacity-90" alt="" />
-    <section
-      className="relative pb-16 md:rounded-4xl overflow-hidden"
-      style={{
-        backgroundImage:
-          "linear-gradient(to bottom right, rgba(229, 229, 229, 1) 0%, rgba(255, 255, 255, 1) 20%, rgba(251, 251, 242, 1) 45%, rgba(255, 221, 199, 1) 70%, rgba(255, 195, 195, 1) 80%, rgba(177, 237, 255, 1) 100%)",
-      }}
-    >
+    <section className="relative pb-16 md:rounded-4xl overflow-hidden custom-gradient">
       <Header />
 
       {/* Decorative elements */}
@@ -51,8 +45,8 @@ function Hero() {
             <div className="h-px bg-gray-300 w-26 md:w-32 ml-2 md:ml-0"></div>
           </div>
 
-          <h1 className="text-2xl md:text-5xl font-bold mb-4 max-w-5xl mx-auto">
-            Return to the pre-industrial<br></br> revolution model of <br></br>{" "}
+          <h1 className="text-2xl md:text-4xl font-bold mb-4 max-w-5xl mx-auto">
+            Return to the pre-industrial<br></br> revolution model of {" "}
             <span className="bg-gradient-to-br from-[#FF6201] from-41% via-[#FF0004] via-53% to-[#5A4BC9] to-100%  bg-clip-text text-transparent">
               business{" "}
             </span>
@@ -94,7 +88,7 @@ function Hero() {
             {/* White container with gradient shadow */}
             <div className="relative bg-white rounded-xl md:rounded-4xl overflow-hidden p-2 md:p-4" style={{
                   boxShadow:
-                    "0 0 40px 15px rgba(0, 0, 0, 0.3)",
+                    "0 0 70px rgba(0, 26, 255, 0.17)",
                 }}>
               <div
                 className="absolute inset-0 rounded-4xl"

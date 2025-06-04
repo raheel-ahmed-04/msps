@@ -74,7 +74,7 @@ function ContactForm() {
 
     console.log("Email Parameters (Not Sent):", JSON.stringify(emailParams, null, 2));
 
-    const apiKey = import.meta.env.VITE_BREVO_API_KEY;
+    const apiKey = "import.meta.env.VITE_BREVO_API_KEY";
 
     const response = await axios.post(
       "https://api.brevo.com/v3/smtp/email",
@@ -117,9 +117,9 @@ function ContactForm() {
             <p className="text-gray-400 font-light text-sm md:text-lg">Partner with us to accelerate your MSP growth and success!</p>
           </div>
 
-          <form className="space-y-4 md:space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">
+          <form className="space-y-4 md:space-y-6 md:px-30">
+            <div className="my-8">
+              <label htmlFor="name" className="block text-xs md:text-sm font-regular text-gray-700 mb-1 md:mb-2">
                 Your Name
               </label>
               <input
@@ -134,8 +134,8 @@ function ContactForm() {
               />
             </div>
 
-            <div>
-              <label htmlFor="email" className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">
+            <div className="my-8">
+              <label htmlFor="email" className="block text-xs md:text-sm font-regular text-gray-700 mb-1 md:mb-2">
                 Work Email
               </label>
               <input
@@ -150,9 +150,9 @@ function ContactForm() {
               />
             </div>
 
-            <div>
-              <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">Size Of Organization</label>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
+            <div className="my-8">
+              <label className="block text-xs md:text-sm font-regular text-gray-700 mb-1 md:mb-2">Size Of Organization</label>
+              <div className="grid grid-cols-3 gap-2 md:gap-3">
                 <button
                   type="button"
                   className={`py-2 md:py-3 px-3 md:px-4 rounded-full border ${
@@ -189,11 +189,11 @@ function ContactForm() {
               </div>
             </div>
 
-            <div>
-              <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">
+            <div className="my-8">
+              <label className="block text-xs md:text-sm font-regular text-gray-700 mb-1 md:mb-2">
                 Is outbound a part of your sales motion
               </label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 mb-1 md:mb-2">
+              <div className="grid grid-cols-2 gap-2 md:gap-3 mb-1 md:mb-2">
                 <button
                   type="button"
                   className={`py-2 md:py-3 px-3 md:px-4 rounded-full border ${
@@ -230,8 +230,8 @@ function ContactForm() {
               </button>
             </div>
 
-            <div>
-              <label htmlFor="revenue" className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">
+            <div className="my-8">
+              <label htmlFor="revenue" className="block text-xs md:text-sm font-regular text-gray-700 mb-1 md:mb-2">
                 Annual revenue
               </label>
               <input
@@ -245,8 +245,8 @@ function ContactForm() {
               />
             </div>
 
-            <div>
-              <label htmlFor="budget" className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">
+            <div className="my-8">
+              <label htmlFor="budget" className="block text-xs md:text-sm font-regular text-gray-700 mb-1 md:mb-2">
                 Monthly Budget
               </label>
               <input
@@ -260,11 +260,11 @@ function ContactForm() {
               />
             </div>
 
-            <div>
-              <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">
+            <div className="my-8">
+              <label className="block text-xs md:text-sm font-regular text-gray-700 mb-1 md:mb-2">
                 Do you understand that sustainable linear growth takes time?
               </label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+              <div className="grid grid-cols-2 gap-2 md:gap-3">
                 <button
                   type="button"
                   className={`py-2 md:py-3 px-3 md:px-4 rounded-full border ${
@@ -290,8 +290,8 @@ function ContactForm() {
               </div>
             </div>
 
-            <div>
-              <label htmlFor="reason" className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">
+            <div className="my-8">
+              <label htmlFor="reason" className="block text-xs md:text-sm font-regular text-gray-700 mb-1 md:mb-2">
                 Why do you want to work with LeadsForMSPs?
               </label>
               <textarea
@@ -307,10 +307,10 @@ function ContactForm() {
 
             <div className="flex justify-end md:items-center md:justify-start mb-4">
             <div onClick={handleSubmit} className="inline-flex items-center gap-x-4 pl-10 pr-1 py-1 bg-white border-1 border-black rounded-full transition-all duration-500 cursor-pointer group hover:bg-black hover:text-white">
-              <span className="text-md md:text-xl font-regular transform transition-all duration-300 group-hover:translate-x-7 delay-150">
+              <span className="text-md md:text-md font-regular transform transition-all duration-300 group-hover:translate-x-7 delay-150">
                 Send
               </span>
-              <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-black rounded-full overflow-hidden transition-transform duration-500 group-hover:scale-110 group-hover:bg-black group-hover:-translate-x-26">
+              <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-black rounded-full overflow-hidden transition-transform duration-500 group-hover:scale-110 group-hover:bg-black group-hover:-translate-x-22">
                 <img
                   className="w-6 h-6 md:w-8 md:h-8 text-white transform transition-all duration-300 group-hover:text-black delay-100"
                   src="/send_icon.svg"

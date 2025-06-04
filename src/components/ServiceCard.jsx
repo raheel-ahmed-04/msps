@@ -1,6 +1,6 @@
 function ServiceCard({ tier, image, title, coloredline, description }) {
   return (
-    <div className="bg-[#FBFBFB] px-6 pt-16 pb-10 rounded-3xl transition-all duration-300 hover:shadow-xl relative border border-gray-200 w-[23em] max-w-md mx-auto ">
+    <div className="bg-[#FBFBFB] px-6 pt-16 pb-10 rounded-3xl transition-all duration-300 hover:shadow-xl relative border border-gray-200 lg:w-[23em] max-w-md mx-auto ">
       {/* Tier Label */}
       <div className="absolute top-6 right-6 text-3xl font-bold text-gray-200 select-none">
         TIER {tier}

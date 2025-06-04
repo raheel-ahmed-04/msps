@@ -4,6 +4,7 @@ import Services from "./components/Services"
 import MarketingFunnel from "./components/MarketingFunnel"
 import ContactForm from "./components/ContactForm"
 import Footer from "./components/Footer"
+import "./App.css"
 
 function App() {
   return (
