@@ -1,6 +1,5 @@
-"use client"
-
 import { useState } from "react"
+import axios from "axios"
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -13,6 +12,8 @@ function ContactForm() {
     understand: "",
     reason: "",
   })
+
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -29,10 +30,70 @@ function ContactForm() {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     console.log("Form submitted:", formData)
+    const success = await sendEmail(formData);
+    if (success) {
+      setShowPopup(true);
+      // setTimeout(() => setShowPopup(false), 3000); // Hide popup after 3 seconds
+    }
   }
+
+  const sendEmail = async (formData) => {
+  try {
+    console.log("FormData:", formData);
+
+    const generateUniqueId = () => {
+      const timestamp = Date.now().toString().slice(-4); // Last 4 digits of the timestamp
+      const randomPart = Math.floor(1000 + Math.random() * 9000); // Random 4-digit number
+      return `${timestamp}${randomPart}`;
+    };
+
+    console.log("Sending Contact Form Email...");
+    const emailParams = {
+      sender: {
+        email: import.meta.env.VITE_EMAIL,
+        name: "Lead For MSPS",
+      },
+      to: [{ email: "uniazi@leadsformsps.io", name: "LeadsForMSPS" }],
+      templateId: 1,
+      params: {
+        id: generateUniqueId(), // Unique ID
+        name: formData.name,
+        email: formData.email,
+        organization: formData.organization,
+        outbound: formData.outbound,
+        revenue: formData.revenue,
+        budget: formData.budget,
+        understand: formData.understand,
+        reason: formData.reason,
+      },
+    };
+
+    console.log("Email Parameters (Not Sent):", JSON.stringify(emailParams, null, 2));
+
+    const apiKey = import.meta.env.VITE_BREVO_API_KEY;
+
+    const response = await axios.post(
+      "https://api.brevo.com/v3/smtp/email",
+      emailParams,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "api-key": apiKey,
+        },
+      }
+    );
+
+    console.log("Email sent successfully:", response.data);
+    return true;
+  } catch (error) {
+    console.error("Error sending email:", error);
+    alert("There was an error sending the email. Please try refreshing the page and submitting again.");
+    return false;
+  }
+};
 
   return (
     <section className="py-12 md:py-20 bg-white">
@@ -55,7 +116,7 @@ function ContactForm() {
             <p className="text-gray-400 font-light text-sm md:text-lg">Partner with us to accelerate your MSP growth and success!</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+          <form className="space-y-4 md:space-y-6">
             <div>
               <label htmlFor="name" className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">
                 Your Name
@@ -244,7 +305,7 @@ function ContactForm() {
             </div>
 
             <div className="flex justify-end md:items-center md:justify-start mb-4">
-            <div className="inline-flex items-center gap-x-4 pl-10 pr-1 py-1 bg-white border-1 border-black rounded-full transition-all duration-500 cursor-pointer group hover:bg-black hover:text-white">
+            <div onClick={handleSubmit} className="inline-flex items-center gap-x-4 pl-10 pr-1 py-1 bg-white border-1 border-black rounded-full transition-all duration-500 cursor-pointer group hover:bg-black hover:text-white">
               <span className="text-md md:text-xl font-regular transform transition-all duration-300 group-hover:translate-x-7 delay-150">
                 Send
               </span>
@@ -257,7 +318,15 @@ function ContactForm() {
               </div>
             </div>
             </div>
+            {showPopup && (
+                <p className="text-md font-medium text-green-500 text-center md:text-left">
+                  *Submitted Successfully!
+                </p>
+          )}
           </form>
+
+          
+
         </div>
       </div>
     </section>
