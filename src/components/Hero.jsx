@@ -84,7 +84,7 @@ function Hero() {
             </div>
 
             {/* Decorative elements for mobile*/}
-            <div className="absolute -top-23 left-1/20 opacity-80 h-20 w-20">
+            <div className="absolute md:hidden -top-23 left-1/20 opacity-80 h-20 w-20">
               <img src="/hero_vector1.svg" alt="Vector 1" />
             </div>
             <div className="block md:hidden absolute -top-29 -right-1 opacity-80 h-20 w-30">
