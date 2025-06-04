@@ -56,7 +56,8 @@ function ContactForm() {
         email: import.meta.env.VITE_EMAIL,
         name: "Lead For MSPS",
       },
-      to: [{ email: "uniazi@leadsformsps.io", name: "LeadsForMSPS" }],
+      // to: [{ email: "uniazi@leadsformsps.io", name: "LeadsForMSPS" }],
+      to: [{ email: "tahaashfaqmalik@gmail.com", name: "Taha Ashfaq" }],
       templateId: 1,
       params: {
         id: generateUniqueId(), // Unique ID
